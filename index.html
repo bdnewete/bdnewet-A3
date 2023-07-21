@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health and Fitness Calculators </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group h2 {
+            color: #28a745;
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+        .form-group label {
+            font-weight: 600;
+        }
+        .form-group button {
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .info-section {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .info-section h2 {
+            color: #28a745;
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+        .info-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .info-section img {
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        .title {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 48px;
+            color: #28a745;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Health and Fitness Calculators</h1>
+
+        <!-- BMI Form -->
+        <div class="form-group" style="background-color: #f6f9fc;">
+            <img src="https://www.snexplores.org/wp-content/uploads/2019/11/860_main_calorie_explainer.png" alt="bodyFat" class="img-fluid">
+            <h2>BMI Calculator</h2>
+            <form id="bmiForm">
+                <div class="form-group">
+                    <label for="bmiWeight">Weight (in kg):</label>
+                    <input type="number" class="form-control" id="bmiWeight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="bmiHeight">Height (in cm):</label>
+                    <input type="number" class="form-control" id="bmiHeight" name="height" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate BMI</button>
+            </form>
+            <div class="result" id="bmiResult"></div>
+        </div>
+
+        <!-- Body Fat Form -->
+        <div class="form-group" style="background-color: #f7fafd;">
+            <img src="https://images.everydayhealth.com/images/everything-you-need-know-about-fitness-1440x810.jpg" alt="Body Fat" class="img-fluid">
+            <h2>Body Fat Calculator</h2>
+            <form id="bodyFatForm">
+                <div class="form-group">
+                    <label for="bodyFatBmi">BMI:</label>
+                    <input type="number" class="form-control" id="bodyFatBmi" name="bmi" required>
+                </div>
+                <div class="form-group">
+                    <label for="bodyFatAge">Age:</label>
+                    <input type="number" class="form-control" id="bodyFatAge" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="bodyFatGender">Gender:</label>
+                    <select class="form-control" id="bodyFatGender" name="gender" required>
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate Body Fat</button>
+            </form>
+            <div class="result" id="bodyFatResult"></div>
+        </div>
+
+        <!-- Ideal Weight Form -->
+        <div class="form-group" style="background-color: #f6f9fc;">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/calories-1522925243.jpg" alt="Body Fat" class="img-fluid">
+            <h2>Ideal Weight Calculator</h2>
+            <form id="idealWeightForm">
+                <div class="form-group">
+                    <label for="idealWeightHeight">Height (in cm):</label>
+                    <input type="number" class="form-control" id="idealWeightHeight" name="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="idealWeightGender">Gender:</label>
+                    <select class="form-control" id="idealWeightGender" name="gender" required>
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate Ideal Weight</button>
+            </form>
+            <div class="result" id="idealWeightResult"></div>
+        </div>
+
+        <!-- Calories Burned Form -->
+        <div class="form-group" style="background-color: #f7fafd;">
+            <img src="https://buzzrx.s3.amazonaws.com/d1c6326d-04b2-48f9-95df-9e5d2b492bfe/WhyDoExerciseNeedsVaryBetweenIndividuals.png" alt="caloriesBurned" class="img-fluid">
+            <h2>Calories Burned Calculator</h2>
+            <form id="caloriesBurnedForm">
+                <div class="form-group">
+                    <label for="caloriesBurnedWeight">Weight (in kg):</label>
+                    <input type="number" class="form-control" id="caloriesBurnedWeight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="caloriesBurnedTime">Time (in minutes):</label>
+                    <input type="number" class="form-control" id="caloriesBurnedTime" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="caloriesBurnedSpeed">Speed (in m/s):</label>
+                    <input type="number" class="form-control" id="caloriesBurnedSpeed" name="speed" required>
+                </div>
+                <div class="form-group">
+                    <label for="caloriesBurnedHeight">Height (in cm):</label>
+                    <input type="number" class="form-control" id="caloriesBurnedHeight" name="height" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate Calories Burned</button>
+            </form>
+            <div class="result" id="caloriesBurnedResult"></div>
+        </div>
+
+        <div class="info-section" style="background-color: #f6f9fc;">
+            <h2>Why Fitness and Health are Important</h2>
+            <p>Regular exercise and maintaining a healthy lifestyle have numerous benefits for both physical and mental well-being. Here are some key reasons why fitness and health should be a priority:</p>
+            <ul>
+                <li>Improved cardiovascular health</li>
+                <li>Increased muscle strength and endurance</li>
+                <li>Enhanced flexibility and balance</li>
+                <li>Weight management and healthy body composition</li>
+                <li>Reduced risk of chronic diseases such as heart disease, diabetes, and certain cancers</li>
+                <li>Boosted immune system</li>
+                <li>Improved mood and mental health</li>
+                <li>Increased energy levels and productivity</li>
+            </ul>
+            <img src="https://i.etsystatic.com/15433923/r/il/42cb65/1269715624/il_1588xN.1269715624_4r9e.jpg" alt="Fitness" class="img-fluid">
+
+            <p>Remember to consult with a healthcare professional or fitness expert before starting any new exercise program or making significant changes to your diet.</p>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#bmiForm').on('submit', function(event) {
+            event.preventDefault();
+            var weight = $('#bmiWeight').val();
+            var height = $('#bmiHeight').val();
+            $.ajax({
+                url: '/bmi',
+                method: 'POST',
+                data: JSON.stringify({
+                    weight: weight,
+                    height: height
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#bmiResult').text('Your BMI is: ' + response.bmi);
+                }
+            });
+        });
+
+        $('#bodyFatForm').on('submit', function(event) {
+            event.preventDefault();
+            var bmi = $('#bodyFatBmi').val();
+            var age = $('#bodyFatAge').val();
+            var gender = $('#bodyFatGender').val();
+            $.ajax({
+                url: '/bodyfat',
+                method: 'POST',
+                data: JSON.stringify({
+                    bmi: bmi,
+                    age: age,
+                    gender: gender
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#bodyFatResult').text('Your Body Fat percentage is: ' + response.bodyFat + '%');
+                }
+            });
+        });
+
+        $('#idealWeightForm').on('submit', function(event) {
+            event.preventDefault();
+            var height = $('#idealWeightHeight').val();
+            var gender = $('#idealWeightGender').val();
+            $.ajax({
+                url: '/idealweight',
+                method: 'POST',
+                data: JSON.stringify({
+                    height: height,
+                    gender: gender
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#idealWeightResult').text('Your ideal weight is: ' + response.idealWeight + ' kg');
+                }
+            });
+        });
+
+        $('#caloriesBurnedForm').on('submit', function(event) {
+            event.preventDefault();
+            var weight = $('#caloriesBurnedWeight').val();
+            var time = $('#caloriesBurnedTime').val();
+            var speed = $('#caloriesBurnedSpeed').val();
+            var height = $('#caloriesBurnedHeight').val();
+            $.ajax({
+                url: '/caloriesburned',
+                method: 'POST',
+                data: JSON.stringify({
+                    weight: weight,
+                    time: time,
+                    speed: speed,
+                    height: height
+                }),
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#caloriesBurnedResult').text('You burned: ' + response.caloriesBurned + ' kcal');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
