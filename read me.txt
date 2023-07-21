@@ -1,4 +1,4 @@
-Health and Fitness Calculators Server
+Health and Fitness Calculators Server by Brhan Newete
 
 This Node.js server provides API endpoints to calculate various health and fitness metrics.
  It uses Express.js, a fast and minimalist web framework for Node.js, for handling HTTP requests and responses.
