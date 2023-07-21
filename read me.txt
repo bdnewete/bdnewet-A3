@@ -45,8 +45,3 @@ npm install express
 
 To use the API endpoints, you can make HTTP POST requests to the corresponding URLs with the required input data in the request body. 
 The server, powered by Express.js, will handle these requests and respond with the calculated results.
-
-For example, you can use tools like Postman or send AJAX requests 
-from your web application to interact with the server and calculate health and fitness metrics.
-
-
